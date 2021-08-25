@@ -38,20 +38,18 @@ void	print_board(char **map)
 	}
 }
 
-void	check_board(char **map, int	line, int col)
+void	check_board(char **map, int	line, int col, int biggest)
 {
 	int	coord_init[2];
-	int	biggest;
 	int	temp_biggest;
 	int	t_line;
 	int	t_col;
 
-	biggest = 0;
 	temp_biggest = 0;
-	while (line < ft_catoi(map[0][0]))
+	while (line++ < ft_catoi(map[0][0]))
 	{
-		col = 0;
-		while (col < ft_strlen(map[1]))
+		col = -1;
+		while (col++ < ft_strlen(map[1]))
 		{
 			coord_init[0] = line;
 			coord_init[1] = col;
@@ -63,9 +61,7 @@ void	check_board(char **map, int	line, int col)
 				t_line = line;
 				t_col = col;
 			}
-			col++;
 		}
-		line++;
 	}
 	fill_square(map, t_line, t_col, biggest);
 }
@@ -76,7 +72,7 @@ void	ifelse(char **map)
 		ft_putstr("map error");
 	else
 	{
-		check_board(map, 1, 2);
+		check_board(map, 0, -1, 0);
 		print_board(map);
 	}
 }

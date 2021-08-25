@@ -15,17 +15,11 @@ int	get_lines(char **map)
 int	extra_validations(char **map, int col, int idx)
 {
 	if (ft_strlen(map[0]) != 5)
-	{
 		return (0);
-	}
 	if (!ft_str_is_printable(map[0]))
-	{
 		return (0);
-	}
 	if (get_lines(map) != ft_catoi(map[0][0]))
-	{
 		return (0);
-	}
 	while (col < 5)
 	{
 		idx = col + 1;
@@ -61,9 +55,8 @@ int	is_valid_map(char **map)
 		col = 0;
 		while (col < init_size)
 		{
-			if (map[idx][col] == map[0][2])
+			if (map[idx][col++] == map[0][2])
 				one_rock = 1;
-			col++;
 		}
 		idx++;
 	}

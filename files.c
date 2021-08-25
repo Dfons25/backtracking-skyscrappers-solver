@@ -76,10 +76,7 @@ char	**paragraph_split(char	*full_text, int	start, int	end)
 			dict[dict_idx] = (char *) malloc(sizeof(char) * (end - start) + 1);
 			dict[dict_idx] = "";
 			while (start <= end)
-			{
-				dict[dict_idx] = ft_concat(dict[dict_idx], full_text[start]);
-				start++;
-			}
+				dict[dict_idx] = ft_concat(dict[dict_idx], full_text[start++]);
 			dict_idx++;
 		}
 		i++;
