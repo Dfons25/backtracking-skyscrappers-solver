@@ -11,19 +11,18 @@ int	get_lines(char **map)
 	return (line);
 }
 
-int extra_validations(char **map, int col, int idx)
+int	extra_validations(char **map, int col, int idx)
 {
-	if (ft_strlen(map[0]) != 5) {
-	printf("\n>>%s<<", map[0]);
-	printf("%d 0", ft_strlen(map[0]));
+	if (ft_strlen(map[0]) != 5)
+	{
 		return (0);
 	}
-	if (!ft_str_is_printable(map[0])){
-	ft_putstr("1");
+	if (!ft_str_is_printable(map[0]))
+	{
 		return (0);
 	}
-	if (get_lines(map) != ft_catoi(map[0][0])){
-	ft_putstr("2");
+	if (get_lines(map) != ft_catoi(map[0][0]))
+	{
 		return (0);
 	}
 	while (col < 5)
@@ -31,11 +30,11 @@ int extra_validations(char **map, int col, int idx)
 		idx = col + 1;
 		while (idx < 5)
 		{
-			if (map[0][col] == map[0][idx]){
-				ft_putstr("3");
+			if (map[0][col] == map[0][idx])
+			{
 				return (0);
-				}
-			idx++;			
+			}
+			idx++;
 		}
 		col++;
 	}

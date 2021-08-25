@@ -37,7 +37,7 @@ int	get_file_size(char	*file_name)
 	int		size;
 
 	size = 0;
-	c = (char	*)malloc(sizeof(char));
+	c = (char *) malloc(sizeof(char));
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
 	{
@@ -55,10 +55,10 @@ int	get_file_size(char	*file_name)
 char	*dict_reader(char	*file_name, int	file_size)
 {
 	int		file_descriptor;
-	int 	sz;
+	int		sz;
 	char	*c;
 
-	c = (char	*)malloc(file_size * sizeof(char));
+	c = (char *) malloc(file_size * sizeof(char));
 	file_descriptor = open(file_name, O_RDONLY);
 	sz = read(file_descriptor, c, file_size);
 	c[sz] = '\0';

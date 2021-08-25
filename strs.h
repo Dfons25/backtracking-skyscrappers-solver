@@ -1,3 +1,4 @@
+
 void	put_char(char	c);
 
 int	ft_strlen(char	*str);

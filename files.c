@@ -70,14 +70,13 @@ char	**paragraph_split(char	*full_text, int	start, int	end)
 	{
 		if (full_text[i] == '\n')
 		{
-			printf("found para");
 			dict[dict_idx] = (char *) malloc(sizeof(char) * (end - start) + 1);
+			dict[dict_idx] = "";
 			while (start <= end)
 			{
 				dict[dict_idx] = ft_concat(dict[dict_idx], full_text[start]);
 				start++;
 			}
-			printf("\n>%s", dict[dict_idx]);
 			dict_idx++;
 		}
 		i++;
