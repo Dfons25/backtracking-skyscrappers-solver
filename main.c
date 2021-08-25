@@ -66,6 +66,19 @@ void	check_board(char **map, int	coord_init[2])
 	fill_square(map, coord_sqr[0], coord_sqr[1], biggest);
 }
 
+void	ifelse(char **map, int coord_init[2])
+{
+	if (is_valid_map(map) == 0)
+		ft_putstr("map error");
+	else
+	{
+		coord_init[0] = 1;
+		coord_init[1] = 2;
+		check_board(map, coord_init);
+		print_board(map);
+	}
+}
+
 int	main(int argn, char	**argv)
 {
 	char	*file_name;
@@ -81,15 +94,7 @@ int	main(int argn, char	**argv)
 		{
 			full_text = dict_reader(argv[idx], get_file_size(argv[idx]));
 			map = paragraph_split(full_text, 0, 0);
-			if (is_valid_map(map) == 0)
-				ft_putstr("map error");
-			else
-			{
-				coord_init[0] = 1;
-				coord_init[1] = 2;
-				check_board(map, coord_init);
-				print_board(map);
-			}
+			ifelse(map, coord_init);
 			free(full_text);
 			free(map);
 			idx++;
