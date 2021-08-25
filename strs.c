@@ -1,3 +1,6 @@
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "strs.h"
 
 void	put_char(char	c)

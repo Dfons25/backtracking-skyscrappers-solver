@@ -1,3 +1,5 @@
+#include <unistd.h>
+#include <stdio.h>
 #include "functions.h"
 int	ft_str_is_printable(char *str)
 {

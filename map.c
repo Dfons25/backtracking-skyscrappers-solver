@@ -1,5 +1,8 @@
+#include <unistd.h>
+#include <stdio.h>
 #include "strs.h"
 #include "map.h"
+int	ft_str_is_printable(char *str);
 
 int	get_lines(char **map)
 {
