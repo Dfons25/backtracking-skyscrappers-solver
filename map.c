@@ -14,17 +14,11 @@ int	get_lines(char **map)
 int	extra_validations(char **map, int col, int idx)
 {
 	if (ft_strlen(map[0]) != 5)
-	{
 		return (0);
-	}
 	if (!ft_str_is_printable(map[0]))
-	{
 		return (0);
-	}
 	if (get_lines(map) != ft_catoi(map[0][0]))
-	{
 		return (0);
-	}
 	while (col < 5)
 	{
 		idx = col + 1;
