@@ -13,19 +13,28 @@ int	get_lines(char **map)
 
 int extra_validations(char **map, int col, int idx)
 {
-	if (ft_strlen(map[0]) != 5)
+	if (ft_strlen(map[0]) != 5) {
+	printf("\n>>%s<<", map[0]);
+	printf("%d 0", ft_strlen(map[0]));
 		return (0);
-	if (!ft_str_is_printable(map[0]))
+	}
+	if (!ft_str_is_printable(map[0])){
+	ft_putstr("1");
 		return (0);
-	if (get_lines(map) != ft_catoi(map[0][0]))
+	}
+	if (get_lines(map) != ft_catoi(map[0][0])){
+	ft_putstr("2");
 		return (0);
+	}
 	while (col < 5)
 	{
 		idx = col + 1;
 		while (idx < 5)
 		{
-			if (map[0][col] == map[0][idx])
+			if (map[0][col] == map[0][idx]){
+				ft_putstr("3");
 				return (0);
+				}
 			idx++;			
 		}
 		col++;
