@@ -82,9 +82,7 @@ int	main(int argn, char	**argv)
 			full_text = dict_reader(argv[idx], get_file_size(argv[idx]));
 			map = paragraph_split(full_text, 0, 0);
 			if (is_valid_map(map) == 0)
-			{
 				ft_putstr("map error");
-			}
 			else
 			{
 				coord_init[0] = 1;

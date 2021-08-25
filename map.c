@@ -54,9 +54,8 @@ int	is_valid_map(char **map)
 		col = 0;
 		while (col < init_size)
 		{
-			if (map[idx][col] == map[0][2])
+			if (map[idx][col++] == map[0][2])
 				one_rock = 1;
-			col++;
 		}
 		idx++;
 	}
