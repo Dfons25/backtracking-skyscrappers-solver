@@ -1,4 +1,7 @@
 #include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 #include "strs.h"
 #include "files.h"
 

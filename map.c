@@ -1,3 +1,4 @@
+#include "functions.h"
 #include "strs.h"
 #include "map.h"
 

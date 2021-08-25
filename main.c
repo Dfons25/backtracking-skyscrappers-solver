@@ -7,7 +7,7 @@
 #include "map.h"
 #include "functions.h"
 
-void	fill_square(char **map, int	line, int	col, int	max_range)
+void	fill_square(char **map, int	line, int col, int	max_range)
 {
 	int	range;
 	int	aux_range;
@@ -38,41 +38,54 @@ void	print_board(char **map)
 	}
 }
 
-void	check_board(char **map, int	coord_init[2])
+void	check_board(char **map, int	line, int col)
 {
-	int	*coord_sqr[2];
+	int	coord_init[2];
 	int	biggest;
 	int	temp_biggest;
+	int	t_line;
+	int	t_col;
 
 	biggest = 0;
 	temp_biggest = 0;
-	while (coord_init[0] < ft_catoi(map[0][0]))
+	while (line < ft_catoi(map[0][0]))
 	{
-		coord_init[1] = 0;
-		while (coord_init[1] < ft_strlen(map[1]))
+		col = 0;
+		while (col < ft_strlen(map[1]))
 		{
+			coord_init[0] = line;
+			coord_init[1] = col;
 			temp_biggest = biggest_square(map, coord_init,
 					ft_catoi(map[0][0]), ft_strlen(map[1]));
 			if (biggest < temp_biggest)
 			{
 				biggest = temp_biggest;
-				coord_sqr[0] = (int) coord_init[0];
-				coord_sqr[1] = (int) coord_init[1];
+				t_line = line;
+				t_col = col;
 			}
-			coord_init[1]++;
+			col++;
 		}
-		coord_init[0]++;
+		line++;
 	}
-	fill_square(map, coord_sqr[0], coord_sqr[1], biggest);
+	fill_square(map, t_line, t_col, biggest);
+}
+
+void	ifelse(char **map)
+{
+	if (is_valid_map(map) == 0)
+		ft_putstr("map error");
+	else
+	{
+		check_board(map, 1, 2);
+		print_board(map);
+	}
 }
 
 int	main(int argn, char	**argv)
 {
-	char	*file_name;
 	int		idx;
 	char	*full_text;
 	char	**map;
-	int		coord_init[2];
 
 	idx = 1;
 	if (argn > 1)
@@ -81,17 +94,7 @@ int	main(int argn, char	**argv)
 		{
 			full_text = dict_reader(argv[idx], get_file_size(argv[idx]));
 			map = paragraph_split(full_text, 0, 0);
-			if (is_valid_map(map) == 0)
-			{
-				ft_putstr("map error");
-			}
-			else
-			{
-				coord_init[0] = 1;
-				coord_init[1] = 2;
-				check_board(map, coord_init);
-				print_board(map);
-			}
+			ifelse(map);
 			free(full_text);
 			free(map);
 			idx++;
